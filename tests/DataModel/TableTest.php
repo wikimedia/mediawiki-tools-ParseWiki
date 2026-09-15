@@ -618,7 +618,6 @@ class TableTest extends TestCase
         // Use reflection to test private method
         $reflection = new \ReflectionClass($table);
         $method = $reflection->getMethod('normalizeStyleAttribute');
-        $method->setAccessible(true);
 
         $input = 'color:red;font-weight:bold;margin:10px';
         $result = $method->invoke($table, $input);
@@ -635,7 +634,6 @@ class TableTest extends TestCase
         
         $reflection = new \ReflectionClass($table);
         $method = $reflection->getMethod('normalizeStyleAttribute');
-        $method->setAccessible(true);
 
         $input = 'background:#fff url(image.png) repeat';
         $result = $method->invoke($table, $input);
@@ -652,7 +650,6 @@ class TableTest extends TestCase
         
         $reflection = new \ReflectionClass($table);
         $method = $reflection->getMethod('normalizeStyleAttribute');
-        $method->setAccessible(true);
 
         $result = $method->invoke($table, '');
         $this->assertEquals('', $result);
